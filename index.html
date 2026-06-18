@@ -3,14 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Despacho Jurídico PRO+</title>
+<title>Despacho Jurídico Premium</title>
+
+<!-- TIPOGRAFÍA -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 
 body{
-  font-family:'Segoe UI',system-ui;
-  background:#0b1120;
+  font-family:'Inter',sans-serif;
+  background:#0a0f1c;
   color:#e5e7eb;
 }
 
@@ -18,113 +21,177 @@ body{
 nav{
   display:flex;
   justify-content:space-between;
-  padding:20px 40px;
-  background:#020617;
+  padding:20px 50px;
+  background:rgba(2,6,23,0.95);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid rgba(255,255,255,0.05);
 }
 
-nav h1{color:#38bdf8}
+nav h1{
+  font-family:'Playfair Display';
+  color:#d4af37;
+  letter-spacing:1px;
+}
 
 nav a{
-  color:#fff;
-  margin-left:15px;
+  color:#cbd5f5;
+  margin-left:20px;
   text-decoration:none;
+  transition:.3s;
 }
+
+nav a:hover{color:#d4af37}
 
 /* HERO */
 .hero{
-  height:80vh;
+  height:85vh;
   display:flex;
   justify-content:center;
   align-items:center;
   text-align:center;
-  background:linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.9)),
+  background:
+  linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.9)),
   url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f');
   background-size:cover;
 }
 
+.hero h2{
+  font-family:'Playfair Display';
+  font-size:3.5em;
+  color:#f9fafb;
+}
+
+.hero p{
+  margin:20px 0;
+  color:#cbd5f5;
+}
+
+/* BOTÓN */
 .btn{
-  padding:12px 25px;
-  background:#38bdf8;
+  padding:12px 28px;
+  background:#d4af37;
+  color:#000;
   border:none;
-  border-radius:5px;
+  border-radius:6px;
   cursor:pointer;
+  font-weight:500;
+  transition:.3s;
+}
+
+.btn:hover{
+  background:#facc15;
 }
 
 /* SECCIONES */
 section{
-  padding:60px 20px;
+  padding:80px 20px;
   max-width:1100px;
   margin:auto;
 }
 
 h2{
   text-align:center;
-  margin-bottom:30px;
-  color:#38bdf8;
+  font-family:'Playfair Display';
+  margin-bottom:40px;
+  color:#d4af37;
 }
 
 /* SERVICIOS */
 .servicios{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:20px;
+  gap:25px;
 }
 
 .card{
-  background:#111827;
-  padding:20px;
-  border-radius:10px;
+  background:linear-gradient(145deg,#0f172a,#020617);
+  padding:25px;
+  border-radius:12px;
+  border:1px solid rgba(212,175,55,0.2);
+  transition:.3s;
 }
 
-/* CONTACTO + AGENDA */
+.card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 10px 25px rgba(0,0,0,0.5);
+}
+
+/* GRID */
 .grid{
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:30px;
 }
 
+/* FORM */
 form{
+  background:#020617;
+  padding:25px;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,0.05);
   display:flex;
   flex-direction:column;
-  gap:10px;
+  gap:12px;
 }
 
 input,textarea{
-  padding:10px;
+  padding:12px;
+  border-radius:6px;
   border:none;
-  border-radius:5px;
+  background:#111827;
+  color:#fff;
+}
+
+input:focus,textarea:focus{
+  outline:1px solid #d4af37;
 }
 
 /* LISTA CITAS */
 .lista{
-  background:#111827;
-  padding:20px;
-  border-radius:10px;
-  max-height:300px;
+  background:#020617;
+  padding:25px;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,0.05);
+  max-height:350px;
   overflow:auto;
 }
 
 .cita{
-  background:#1f2937;
-  padding:10px;
+  background:#111827;
+  padding:12px;
   margin-bottom:10px;
-  border-radius:5px;
+  border-radius:8px;
   display:flex;
   justify-content:space-between;
   align-items:center;
+  border-left:3px solid #d4af37;
+}
+
+.cita small{
+  color:#9ca3af;
 }
 
 .cita button{
-  background:red;
+  background:#ef4444;
   border:none;
   color:#fff;
   padding:5px 10px;
   cursor:pointer;
+  border-radius:5px;
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:30px;
+  background:#020617;
+  color:#9ca3af;
 }
 
 /* RESPONSIVE */
 @media(max-width:800px){
   .grid{grid-template-columns:1fr}
+  .hero h2{font-size:2.5em}
 }
 </style>
 
@@ -136,19 +203,20 @@ input,textarea{
   <h1>LEX & ASOCIADOS</h1>
   <div>
     <a href="#servicios">Servicios</a>
-    <a href="#contacto">Agendar</a>
+    <a href="#agenda">Agenda</a>
   </div>
 </nav>
 
 <div class="hero">
   <div>
-    <h2>Agenda tu cita legal</h2>
-    <p>Atención profesional inmediata</p>
+    <h2>Excelencia Legal</h2>
+    <p>Asesoría jurídica de alto nivel y confianza</p>
+    <button class="btn" onclick="document.getElementById('agenda').scrollIntoView()">Agendar cita</button>
   </div>
 </div>
 
 <section id="servicios">
-  <h2>Servicios</h2>
+  <h2>Áreas de práctica</h2>
   <div class="servicios">
     <div class="card">Derecho Civil</div>
     <div class="card">Derecho Penal</div>
@@ -157,18 +225,18 @@ input,textarea{
   </div>
 </section>
 
-<section id="contacto">
-  <h2>Agendar Cita</h2>
+<section id="agenda">
+  <h2>Agendar cita</h2>
 
   <div class="grid">
 
     <!-- FORM -->
     <form id="formCita">
-      <input type="text" id="nombre" placeholder="Nombre" required>
+      <input type="text" id="nombre" placeholder="Nombre completo" required>
       <input type="date" id="fecha" required>
       <input type="time" id="hora" required>
-      <textarea id="asunto" placeholder="Motivo"></textarea>
-      <button class="btn">Agendar</button>
+      <textarea id="asunto" placeholder="Motivo de la consulta"></textarea>
+      <button class="btn">Confirmar cita</button>
     </form>
 
     <!-- LISTA -->
@@ -178,14 +246,13 @@ input,textarea{
 
 </section>
 
-<footer style="text-align:center;padding:20px;background:#020617;">
+<footer>
   📍 ____________________ <br>
   📞 ____________________ <br>
   ✉ ____________________
 </footer>
 
 <script>
-// Cargar citas
 let citas = JSON.parse(localStorage.getItem("citas")) || [];
 
 function mostrarCitas(){
@@ -195,9 +262,10 @@ function mostrarCitas(){
   citas.forEach((cita, index)=>{
     lista.innerHTML += `
       <div class="cita">
-        <span>
-          ${cita.nombre} - ${cita.fecha} ${cita.hora}
-        </span>
+        <div>
+          <strong>${cita.nombre}</strong><br>
+          <small>${cita.fecha} - ${cita.hora}</small>
+        </div>
         <button onclick="eliminar(${index})">X</button>
       </div>
     `;
@@ -227,7 +295,6 @@ document.getElementById("formCita").addEventListener("submit", function(e){
   mostrarCitas();
 });
 
-// Inicializar
 mostrarCitas();
 </script>
 
